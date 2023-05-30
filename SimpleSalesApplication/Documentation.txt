@@ -1,0 +1,69 @@
+Simple Sales Application Documentation
+Introduction
+The Simple Sales Application is a command-line application designed to manage sales-related operations such as creating customers, articles (products), and sales invoices. The application utilizes ADO.NET and interacts with a SQL Server database to store and retrieve data.
+
+Getting Started
+To run the Simple Sales Application, follow these steps:
+
+Ensure that you have the following prerequisites:
+
+.NET Framework or .NET Core SDK installed.
+SQL Server installed or access to a SQL Server database.
+Clone or download the Simple Sales Application project from the repository.
+
+Open the project in your preferred development environment (e.g., Visual Studio, Visual Studio Code).
+
+Update the connection string in the Program.cs file with the appropriate details for your SQL Server database. The connection string should include the server name, database name, and authentication details.
+
+Build and run the application.
+
+The application will display a menu with options to create customers, articles, or sales invoices. Enter the corresponding number to perform the desired action.
+
+Application Structure
+The Simple Sales Application consists of the following files and classes:
+
+Program.cs: Contains the entry point of the application. It creates an instance of the SalesApplicationManager class and runs the application.
+
+SalesApplicationManager.cs: The main class that handles the logic of the sales application. It prompts the user for actions and performs the corresponding operations based on user input.
+
+SalesApplicationManager Class
+The SalesApplicationManager class is responsible for managing the sales application and contains the following methods:
+
+SalesApplicationManager(string connectionString): The constructor that initializes the class with the provided SQL Server connection string.
+
+Run(): Starts the execution of the sales application. Displays the main menu and prompts the user for actions.
+
+CreateCustomer(): Prompts the user to enter a customer name and inserts it into the "Customers" table in the database.
+
+CreateArticle(): Prompts the user to enter an article name and price, and inserts the data into the "Articles" table in the database.
+
+CreateSalesInvoice(): Prompts the user to enter a customer ID, invoice date, article ID, and quantity. Inserts the sales invoice and related information into the "Invoices" and "InvoiceItems" tables in the database.
+
+Database Interaction
+The application interacts with a SQL Server database using ADO.NET and the System.Data.SqlClient namespace. It utilizes parameterized SQL queries to ensure proper handling of user input and prevent SQL injection attacks.
+
+The database schema should include the following tables:
+
+Customers: Stores customer information, including the customer name.
+
+Articles: Stores information about articles (products), including the article name and price.
+
+Invoices: Stores sales invoice information, including the customer ID and invoice date.
+
+InvoiceItems: Stores information about invoice items, including the invoice ID, article ID, and quantity.
+
+Error Handling and Validation
+The Simple Sales Application incorporates basic error handling and validation to ensure data integrity and prevent application crashes. Here are some key points:
+
+Invalid user inputs, such as non-numeric values or incorrect date formats, are validated and appropriate error messages are displayed.
+
+The application checks the existence of a customer before creating a sales invoice to prevent inserting invalid customer IDs.
+
+SQL parameterization is used to prevent SQL injection attacks and ensure secure database operations.
+
+Limitations and Future Enhancements
+The Simple Sales Application has some limitations and areas for future enhancement:
+
+Error handling and validation can be further improved to provide more informative error messages and handle edge cases.
+
+The application currently supports basic CRUD operations for customers, articles, and
